@@ -55,11 +55,19 @@ a {
 <body>
 <form action="/action_page.php">
   <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
+    <h1>Register</h1><h2 style=> the NSI Account...</h2>
+    <p>Please fill in this form to create an NSI account.</p>
     <hr>
+    <label for="name"><b>YOUR NAME</b></label>
+    <input type="text" placeholder="Entet you name" name="name" id="name" required>
+    <label for="name"><b>Date of Birth</b></label>
+    <input type="text" placeholder="DD/MM/YYYY" name="dob" id="dob" required>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <label for="email"><b>MOBILE NUMBER</b></label>
+    <input type="number" placeholder="Enter your Number" name="number" id="number" required>
+    <label for="email"><b>USER NAME</b></label>
+    <input type="text" placeholder="Enter user name in CAPITAL letter" name="uname" id="uname" required>
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
     <label for="psw-repeat"><b>Repeat Password</b></label>
