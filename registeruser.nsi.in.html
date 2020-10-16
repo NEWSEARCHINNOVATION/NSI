@@ -53,32 +53,46 @@ a {
 </style>
 </head>
 <body>
-<form action="/action_page.php">
+<form name="register_form">
   <div class="container">
     <h1>Register</h1><h2 style=> the NSI Account...</h2>
     <p>Please fill in this form to create an NSI account.</p>
     <hr>
     <label for="name"><b>YOUR NAME</b></label>
-    <input type="text" placeholder="Entet you name" name="name" id="name" required>
+    <input type="text" placeholder="Entet you name" name="NAME" id="name" required>
     <label for="name"><b>Date of Birth</b></label>
-    <input type="text" placeholder="DD/MM/YYYY" name="dob" id="dob" required>
+    <input type="text" placeholder="DD/MM/YYYY" name="DATE OF BIRTH" id="dob" required>
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+    <input type="text" placeholder="Enter Email" name="EMAIL" id="email" required>
     <label for="email"><b>MOBILE NUMBER</b></label>
-    <input type="text" placeholder="Enter your Number" name="number" id="number" required>
+    <input type="text" placeholder="Enter your Number" name="MOBILE NUMBER" id="number" required>
     <label for="email"><b>USER NAME</b></label>
-    <input type="text" placeholder="Enter user name in CAPITAL letter" name="uname" id="uname" required>
+    <input type="text" placeholder="Enter user name in CAPITAL letter" name="USERNAME" id="uname" required>
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+    <input type="password" placeholder="Enter Password" name="PASSWORD" id="psw" required>
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" onclick="myFunction()" class="registerbtn">Register</button>
   </div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 </form>
+<script>
+function myFunction() {
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
+  const form = document.forms['register_form']
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+  location.replace("http://newsearchinnovations.ml")
+}
+
+</script>
 </body>
 </html>
