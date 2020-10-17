@@ -98,11 +98,18 @@ function myfunction2() {
   var n6=document.forms["register_form"]["PASSWORD"].value;
   var n7=document.forms["register_form"]["R PASSWORD"].value;
   if(n1=="" || n2=="" || n3=="" || n4=="" || n5=="" || n6=="" || n7=="") {
-     alert("please fill all the details given in the form");
-     return false;
+    alert("please fill all the details given in the form");
+    return false;
   }
   else {
-     return true;
+    if(n6!=n7) {
+      alert("password is not matched to confirm password");
+      return false;
+    }
+    else {
+      alert("Congratulation! you have registerd NSI account succesfully");
+      return true;
+    }
   }
 }
 </script>
