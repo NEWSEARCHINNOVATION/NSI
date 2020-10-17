@@ -53,7 +53,7 @@ a {
 </style>
 </head>
 <body>
-<form name="register_form" onsubmit="return myfunction1()" method="post">
+<form name="register_form" onsubmit="myfunction1()" method="post">
   <div class="container">
     <h1>Register</h1><h2 style=> the NSI Account...</h2>
     <p>Please fill in this form to create an NSI account.</p>
@@ -91,12 +91,10 @@ function myfunction1() {
   var n7=document.forms["register_form"]["R PASSWORD"].value;
   if(n1=="" || n2=="" || n3=="" || n4=="" || n5=="" || n6=="" || n7=="") {
     alert("please fill all the details given in the form");
-    return false;
   }
   else {
     if(n6!=n7) {
       alert("password is not matched to confirm password");
-      return false;
     }
     else {
       const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
@@ -108,7 +106,6 @@ function myfunction1() {
           .catch(error => console.error('Error!', error.message))
       });
       alert("Congratulation! you have registerd NSI account succesfully");
-      return true;
     }
   }
 }
