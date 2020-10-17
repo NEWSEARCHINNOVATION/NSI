@@ -53,7 +53,7 @@ a {
 </style>
 </head>
 <body>
-<form name="register_form" action="http://newsearchinnovations.ml">
+<form name="register_form" action="http://newsearchinnovations.ml" onsubmit="return myfunction2()">
   <div class="container">
     <h1>Register</h1><h2 style=> the NSI Account...</h2>
     <p>Please fill in this form to create an NSI account.</p>
@@ -71,7 +71,7 @@ a {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="PASSWORD" id="psw" required>
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <input type="password" placeholder="Repeat Password" name="R PASSWORD" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
     <button type="submit"  class="registerbtn">Register</button>
@@ -89,7 +89,22 @@ a {
         .then(response => console.log('Success!', response))
         .catch(error => console.error('Error!', error.message))
     });
-
+function myfunction2() {
+  var n1=document.forms["register_form"]["NAME"].value;
+  var n2=document.forms["register_form"]["DATE OF BIRTH"].value;
+  var n3=document.forms["register_form"]["EMAIL"].value;
+  var n4=document.forms["register_form"]["MOBILE NUMBER"].value;
+  var n5=document.forms["register_form"]["USERNAME"].value;
+  var n6=document.forms["register_form"]["PASSWORD"].value;
+  var n7=document.forms["register_form"]["R PASSWORD"].value;
+  if(n1=="" && n2=="" && n3=="" && n4=="" && n5=="" && n6=="" && n7=="" &&) {
+     alert("please fill all the details given in the form");
+     return false;
+  }
+  else {
+     return true;
+  }
+}
 </script>
 </body>
 </html>
