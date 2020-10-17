@@ -14,7 +14,7 @@ body {
   padding: 16px;
   background-color: white;
 }
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number], input[type=date] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -22,7 +22,7 @@ input[type=text], input[type=password] {
   border: none;
   background: #f1f1f1;
 }
-input[type=text]:focus, input[type=password]:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=date]:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -50,7 +50,7 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number], input[type=date] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -156,11 +156,11 @@ span.psw {
     <label for="name"><b>YOUR NAME</b></label>
     <input type="text" placeholder="Entet you name" name="NAME" id="name" required>
     <label for="name"><b>Date of Birth</b></label>
-    <input type="text" placeholder="DD/MM/YYYY" name="DATE OF BIRTH" id="dob" required>
+    <input type="date" placeholder="dd-mm-yyyy" name="DATE OF BIRTH" id="dob" required>
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="EMAIL" id="email" required>
     <label for="email"><b>MOBILE NUMBER</b></label>
-    <input type="text" placeholder="Enter your Number" name="MOBILE NUMBER" id="number" required>
+    <input type="number" placeholder="Enter your Number" name="MOBILE NUMBER" id="number" min="10" max="10 required>
     <label for="email"><b>USER NAME</b></label>
     <input type="text" placeholder="Enter user name in CAPITAL letter" name="USERNAME" id="uname" required>
     <label for="psw"><b>Password</b></label>
