@@ -81,6 +81,15 @@ a {
   </div>
 </form>
 <script>
+function myfunction0() {
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
+   const form = document.forms['register_form']
+   form.addEventListener('submit', e => {
+     e.preventDefault()
+     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+       .then(response => console.log('Success!', response)
+       .catch(error => console.error('Error!', error.message))
+   });
 function myfunction1() {
   var n1=document.forms["register_form"]["NAME"].value;
   var n2=document.forms["register_form"]["DATE OF BIRTH"].value;
@@ -93,20 +102,13 @@ function myfunction1() {
     alert("please fill all the details given in the form");
   }
   else {
-    if(n6!=n7) {
-      alert("password is not matched to confirm password");
+    if(n6==n7) {
+      myfunction0()
+      alert("Congratulation! you have registerd NSI account succesfully");
+      myfunction2()   
     }
     else {
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
-      const form = document.forms['register_form']
-      form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-          .then(response => console.log('Success!', response))
-          .catch(error => console.error('Error!', error.message))
-      });
-      alert("Congratulation! you have registerd NSI account succesfully");
-      myfunction2()
+      alert("password is not matched to confirm password");
     }
   }
 }
