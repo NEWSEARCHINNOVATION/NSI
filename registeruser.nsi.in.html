@@ -53,7 +53,7 @@ a {
 </style>
 </head>
 <body>
-<form name="register_form" onsubmit="myfunction()">
+<form name="register_form">
   <div class="container">
     <h1>Register</h1><h2 style=> the NSI Account...</h2>
     <p>Please fill in this form to create an NSI account.</p>
@@ -81,16 +81,15 @@ a {
   </div>
 </form>
 <script>
-function myfunction() {
-   const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
-   const form = document.forms['register_form']
-   form.addEventListener('submit', e => {
-     e.preventDefault()
-     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-       .then(response => console.log('Success!', response)
-       .catch(error => console.error('Error!', error.message))
-   });
- }
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
+const form = document.forms['register_form']
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => console.log('Success!', response)
+    .catch(error => console.error('Error!', error.message))
+});
+
 /*function myfunction1() {
   var n1=document.forms["register_form"]["NAME"].value;
   var n2=document.forms["register_form"]["DATE OF BIRTH"].value;
