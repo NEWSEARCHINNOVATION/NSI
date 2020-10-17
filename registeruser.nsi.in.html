@@ -53,7 +53,7 @@ a {
 </style>
 </head>
 <body>
-<form name="register_form" onsubmit="return myfunction2()" method="post">
+<form name="register_form" onsubmit="return myfunction1()" method="post">
   <div class="container">
     <h1>Register</h1><h2 style=> the NSI Account...</h2>
     <p>Please fill in this form to create an NSI account.</p>
@@ -74,14 +74,14 @@ a {
     <input type="password" placeholder="Repeat Password" name="R PASSWORD" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit"  class="registerbtn">Register</button>
+    <button type="submit"  class="registerbtn" onclick="myfunction2()">Register</button>
   </div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 </form>
 <script>
-function myfunction2() {
+function myfunction1() {
   var n1=document.forms["register_form"]["NAME"].value;
   var n2=document.forms["register_form"]["DATE OF BIRTH"].value;
   var n3=document.forms["register_form"]["EMAIL"].value;
@@ -111,6 +111,9 @@ function myfunction2() {
       return true;
     }
   }
+}
+function myfunction() {
+  window.location.href = "http://newsearchinnovations.ml";
 }
 </script>
 </body>
