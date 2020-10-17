@@ -97,7 +97,7 @@ function myfunction2() {
   var n5=document.forms["register_form"]["USERNAME"].value;
   var n6=document.forms["register_form"]["PASSWORD"].value;
   var n7=document.forms["register_form"]["R PASSWORD"].value;
-  if(n1=="" && n2=="" && n3=="" && n4=="" && n5=="" && n6=="" && n7=="" &&) {
+  if(n1=="" || n2=="" || n3=="" || n4=="" || n5=="" || n6=="" || n7=="") {
      alert("please fill all the details given in the form");
      return false;
   }
