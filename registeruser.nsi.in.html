@@ -74,14 +74,13 @@ a {
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" onclick="myfunction1()" class="registerbtn">Register</button>
+    <button type="submit"  class="registerbtn">Register</button>
   </div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
 </form>
 <script>
-function myfunction1() {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
     const form = document.forms['register_form']
     form.addEventListener('submit', e => {
@@ -91,8 +90,6 @@ function myfunction1() {
         .catch(error => console.error('Error!', error.message))
     });
   alert("Congratulations! You have Registered NSI account successfully. Click ok to continue");
-}
-  
 </script>
 </body>
 </html>
