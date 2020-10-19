@@ -7,6 +7,40 @@ h1	{color:white;font-size:50px;}
 h2	{color:white;}
 h3	{background-color:white;}
 h4	{color:white;}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 10;
+  left: 10;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 50px;
+  margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 </style>
 <head>
 <h1><center>
@@ -14,6 +48,14 @@ About Us
 </center></h1>
 </head>
 <body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <n1>Hi USER<n1>
+  <a href="http://newsearchinnovation.github.io/NSI/">Home</a>
+  <a href="http://newsearchinnovation.github.io/NSI/registeruser.nsi.in.html">Join with us</a>
+  <a href="http://newsearchinnovation.github.io/NSI/aboutus.nsi.in.html">About us</a>
+</div>
+<span style="font-size:50px;cursor:pointer;float:left;left:500px;top:100px;color:red;" onclick="openNav()">&#9776;</span>
 <h2>
 <b>பிரபஞ்சத்தின் குடிமகனாக எங்களது வணக்கம் ! இது ஒரு தேடலின் துவக்கம், ஒரு முடிவில்லா பயணத்தின் துவக்கம் ,இது மறு தேடல் அல்ல, புதிய தேடல்.</b>
   </br></br>
@@ -27,4 +69,12 @@ newsearchinnovations@gmail.com
 </h4>
 </center>
 </body>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 </html>
