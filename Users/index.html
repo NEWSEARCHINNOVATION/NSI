@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body	{background-image:url("https://newsearchinnovation.github.io/NSI/Photos/bg.jpeg");background-color:powderblue;font-family:Algerian;font-size:50px;}
+c1	{color:orange;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;}
+c2	{color:white;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;}
+c3	{color:green;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;}
+h1	{background-color:white;font-size:30px;}
+*	{box-sizing:border-box;}
+.column	{float:left;width:33.33%;padding:100px;}
+.row::after	{content:"";clear:both;display:table;}
+.sidenav {
+  height: 50%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 10;
+  left: 10;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 50px;
+  margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover {
+  opacity: 0.8;
+}
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+.container {
+  padding: 16px;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+  padding-top: 60px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 80%; 
+}
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+<center><b><c1>NEW SEA</c1><c2>RCH INN</c2><c2>O</c2><c3>VATIONS</c3></b></center>
+<center style="font-size:30px;"><c1>புதிய</c1><c2> தேடல் </c2><c3>இயக்கம்</c3></center>
+<marquee  style="font-size:20px;">Welcome ! citizen of Universe |  இப்பிரபஞ்சத்தில் வாழும் உயிர்களுக்கு வணக்கம் !</marquee>
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <n1>Hi <n2 id="name_value"></n2><n1>
+  <a href="http://newsearchinnovation.github.io/NSI/">Home</a>
+  <a href="http://newsearchinnovation.github.io/NSI/aboutus.nsi.in.html">About us</a>
+  <a href="http://newsearchinnovation.gthub.io/NSI/">Logout</a>
+</div>
+<span style="font-size:75px;cursor:pointer;float:left;" onclick="openNav()">&#9776;</span>
+<center><img src="https://newsearchinnovation.github.io/NSI/Photos/nsi_logo.png" width="400" height="400"></center></br>
+<h1><center>OUR FUTURE PROGRAMS</center></h1></br>
+<div class="row">
+<div class="column"><a href="https://newsearchinnovation.github.io/NSI/Paravai"><img src="https://newsearchinnovation.github.io/NSI/Photos/paravai_logo.jpeg" width="250" height="250"></a></div>
+<div class="column"><a href="https://newsearchinnovation.github.io/NSI/Olaisuvadi_evukanai"><img src="https://newsearchinnovation.github.io/NSI/Photos/olai_logo.jpg" width="250" height="250"></a></div>
+<div class="column"><a href="https://newsearchinnovation.github.io/NSI/Puthiya_thedal/"><img src="https://newsearchinnovation.github.io/NSI/Photos/putiyathedal_logo.jpg" width="250" height="250"></a></div>
+</div>
+</br>
+<center><temp style="font-size:70px;color:red;">LAUNCHING SOON...STAY TUNED.....</temp></center>
+<script>
+var name0=decodeURIComponent(window.location.search);
+name1=name0.substring(1);
+var name2=name1.indexOf("&psw=");
+var name3=name1.slice(6,name2);
+document.getElementById("name_value").innerHTML=name3;
+if(name3=="") {
+	alert("You are not the user of NSI");
+	location.replace("http://newsearchinnovation.github.io/NSI");
+}
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+</body>
+</html>
