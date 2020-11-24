@@ -1,8 +1,8 @@
-<!-- The core Firebase JS SDK is always required and must be listed first -->
+//The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
+//TODO: Add SDKs for Firebase products that you want to use
+//     https://firebase.google.com/docs/web/setup#available-libraries
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
 
   // Your web app's Firebase configuration
@@ -20,3 +20,17 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+  count auth=firebash.auth();
+  function signUp() {
+     var email = document.getElementById("email");
+     var password = document.getElementById("password");
+     const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
+     promise.catch(e => alert(e.message));
+     alert("Signed Up");
+  }
+  function signIn() {
+     var email = document.getElementById("email");
+     var password = document.getElementById("password");
+     const promise = auth.signInWithEmailAndPassword(email.value, password.value);
+     promise.catch(e => alert(e.message));
+  }
