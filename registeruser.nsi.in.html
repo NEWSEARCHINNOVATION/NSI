@@ -169,7 +169,7 @@ span.psw {
     <input type="password" placeholder="Repeat Password" name="R PASSWORD" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" onclick="signUp()" class="registerbtn">Register</button>
+    <button type="submit" onclick="RegisterUser()" class="registerbtn">Register</button>
   </div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
@@ -186,6 +186,44 @@ span.psw {
 </div>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCXyRoWOmFpUoMtya9Dwv_1S34YXeLTai8",
+    authDomain: "new-search-innovations.firebaseapp.com",
+    databaseURL: "https://new-search-innovations.firebaseio.com",
+    projectId: "new-search-innovations",
+    storageBucket: "new-search-innovations.appspot.com",
+    messagingSenderId: "935478226292",
+    appId: "1:935478226292:web:fa40b03bb51341dc9b1021",
+    measurementId: "G-XHFQSY3B8Q"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  function RegisterUser() {
+   var name=document.getElementById('name').value;
+   var dob=document.getElementById('dob').value;
+   var email=document.getElementById('email').value;
+   var number=document.getElementById('number').value;
+   var uname=document.getElementById('uname').value;
+   var password=document.getElementById('psw').value;
+   firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+    alert('User Register successfully');
+    var id=firebase.auth().currentUser.uid;
+    firebase.database().ref('Users/'+id).set({
+     NAME :name,
+     DOB:dob,
+     EMAIL:email,
+     NUMBER :number,
+     USERNAME :uname,
+     PASSWORD :password,
+    });
+   }).catch(function(error){
+    var errorcode=error.code;
+    var errormsg=error.message;
+   });
+  }
+</script>
 <script>
 function myfunc1() {	
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
