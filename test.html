@@ -1,0 +1,40 @@
+<!DOCTY<!DOCTYPE html>
+<html>
+<head>
+ <title>My First Project</title>
+</head>
+<body>
+ <div id="Registration">
+  <h1>Registration using Firebase!!!</h1>
+  <input type="text" name="email" id="email" placeholder="Enter Your Email"><br><br>
+  <input type="text" name="pass" id="password" placeholder="Enter Your Password"><br><br>
+  <button onclick="RegisterUser()">Registration New User</button>
+  <button onclick="LoginUser()">Login User</button>
+ </div>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCXyRoWOmFpUoMtya9Dwv_1S34YXeLTai8",
+    authDomain: "new-search-innovations.firebaseapp.com",
+    databaseURL: "https://new-search-innovations.firebaseio.com",
+    projectId: "new-search-innovations",
+    storageBucket: "new-search-innovations.appspot.com",
+    messagingSenderId: "935478226292",
+    appId: "1:935478226292:web:fa40b03bb51341dc9b1021",
+    measurementId: "G-XHFQSY3B8Q"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  function RegisterUser() {
+   var email=document.getElementById('email').value;
+   var password=document.getElementById('password').value;
+   firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
+    alert('User Register successfully');
+   }).catch(function(error){
+    var errorcode=error.code;
+    var errormsg=error.message;
+   });
+  }
+</script>
+</body>
+</html>
