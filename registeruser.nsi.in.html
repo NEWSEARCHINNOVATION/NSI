@@ -173,7 +173,7 @@ span.psw {
     <input type="password" placeholder="Repeat Password" name="R PASSWORD" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button type="submit" onclick="myfunc()" class="registerbtn">Register</button>
+    <button type="submit" onclick="signUp()" class="registerbtn">Register</button>
   </div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
@@ -211,7 +211,6 @@ function myfunc() {
     alert("Password are not matched to repeat password");
   }
   else {
-    signUp();
     myfunc1();
     myfunc9();
   }
