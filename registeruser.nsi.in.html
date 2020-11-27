@@ -3,6 +3,10 @@
 <title>NSI REGISTRATION</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 </head>
 <style>
 body {
@@ -148,7 +152,6 @@ span.psw {
 }
 </style>
 <body>
-<form name="form1">
   <div class="container">
     <h1>Register</h1><h2 style=> the NSI Account...</h2>
     <p>Please fill in this form</br>to join with us...</p>
@@ -169,12 +172,11 @@ span.psw {
     <input type="password" placeholder="Repeat Password" name="R PASSWORD" id="psw-repeat" required>
     <hr>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <button onclick="RegisterUser()" class="registerbtn">Register</button>
+    <button onclick="myfunc()" class="registerbtn">Register</button>
   </div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
-</form>
 <div id="id01" class="modal">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
@@ -184,8 +186,6 @@ span.psw {
 	<a href="http://newsearchinnovations.ml" style="color:blue;font-size:25px;"><button>Click Here To Continue</button></a>
     </div>
 </div>
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
 <script>
   var firebaseConfig = {
     apiKey: "AIzaSyCXyRoWOmFpUoMtya9Dwv_1S34YXeLTai8",
@@ -197,26 +197,45 @@ span.psw {
     appId: "1:935478226292:web:fa40b03bb51341dc9b1021",
     measurementId: "G-XHFQSY3B8Q"
   };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-  function RegisterUser() {
-   var name=document.getElementById('name').value;
-   var dob=document.getElementById('dob').value;
-   var email=document.getElementById('email').value;
-   var number=document.getElementById('number').value;
-   var uname=document.getElementById('uname').value;
-   var password=document.getElementById('psw').value;
-   firebase.auth().createUserWithEmailAndPassword(email,password).then(function(){
-    alert('User Register successfully');
-   }).catch(function(error){
-    var errorcode=error.code;
-    var errormsg=error.message;
-   });
-  }
+function signUp(){
+    var name = document.getElementById("name").value;
+    var dob = document.getElementById("dob").value;
+    var email = document.getElementById("email").value;
+    var number = document.getElementById("number").value;
+    var uname = document.getElementById("uname").value;
+    var password = document.getElementById("psw").value;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+	.then((success) => {
+            var user = firebase.auth().currentUser;
+            var uid;
+            if (user != null) {
+                uid = user.uid;
+            }
+            var firebaseRef = firebase.database().ref();
+            var userData = {
+                Name: name,
+                DOB: dob,
+                Email: email,
+                Password: password,
+		UserName: uname,
+		MobileNumber: number,
+            }
+            firebaseRef.child(uid).set(userData);
+	})
+	.then((then) => {
+	alert("sucess");
+        })
+      .catch((error) => {
+      	var errorCode = error.code;
+      	var errorMessage = error.message;
+      	alert(errorMessage);
+    });
+}
 </script>
 <script>
-function myfunc1() {	
+function AddValuesToGoogleSheets() {	
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
   const form = document.forms['form1']
   form.addEventListener('submit', e => {
@@ -238,11 +257,11 @@ function myfunc() {
     alert("Password are not matched to repeat password");
   }
   else {
-    myfunc1();
-    myfunc9();
+    signUp();
+    myfunc2();
   }
 }
-function myfunc9() {
+function myfunc2() {
     document.getElementById('id01').style.display='block'
 }
 var modal = document.getElementById('id01');
