@@ -150,7 +150,7 @@ span.psw {
   <a style="color:green;">Welcome, <a style="color:green;" id="name_value"></a></a>
   <a href="http://newsearchinnovation.github.io/NSI/">Home</a>
   <a href="http://newsearchinnovation.github.io/NSI/aboutus.nsi.in.html">About us</a>
-  <a href="http://newsearchinnovation.gthub.io/NSI/">Logout</a>
+  <a href="http://newsearchinnovation.github.io/NSI/">Logout</a>
 </div>
 <span style="font-size:75px;cursor:pointer;float:left;" onclick="openNav()">&#9776;</span>
 <center><img src="https://newsearchinnovation.github.io/NSI/Photos/nsi_logo.png" width="400" height="400"></center></br>
@@ -180,7 +180,7 @@ function closeNav() {
 }
 function signOut(){
     firebase.auth().signOut().then((value) => {
-        window.location.replace("http://newsearchinnovation.gthub.io/NSI");
+        window.location.replace("http://newsearchinnovation.github.io/NSI");
         });
     }).catch(function(error) {
 	var errorMessage=error.message;
