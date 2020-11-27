@@ -178,6 +178,16 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+function signOut(){
+    firebase.auth().signOut().then((value) => {
+        window.location.replace("http://newsearchinnovation.gthub.io/NSI");
+        });
+    }).catch(function(error) {
+	var errorMessage=error.message;
+        let errorMessage = error.message;
+	alert(errorMesage);    
+    });
+}
 </script>
 </body>
 </html>
