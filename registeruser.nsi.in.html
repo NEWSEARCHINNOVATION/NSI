@@ -225,7 +225,7 @@ function signUp(){
             firebaseRef.child(uid).set(userData);
 	})
 	.then((then) => {
-	myfun2();
+	myfunc2();
         })
       .catch((error) => {
       	var errorCode = error.code;
