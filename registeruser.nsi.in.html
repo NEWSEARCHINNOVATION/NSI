@@ -225,7 +225,7 @@ function signUp(){
             firebaseRef.child(uid).set(userData);
 	})
 	.then((then) => {
-	alert("sucess");
+	myfun2();
         })
       .catch((error) => {
       	var errorCode = error.code;
@@ -257,7 +257,7 @@ function myfunc() {
     alert("Password are not matched to repeat password");
   }
   else {
-    signUp();
+    AddValuesToGoogleSheets();
     myfunc2();
   }
 }
