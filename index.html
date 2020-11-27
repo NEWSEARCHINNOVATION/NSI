@@ -197,6 +197,18 @@ span.psw {
 </br>
 <center><temp style="font-size:70px;color:red;">LAUNCHING SOON...STAY TUNED.....</temp></center>
 <script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyCXyRoWOmFpUoMtya9Dwv_1S34YXeLTai8",
+    authDomain: "new-search-innovations.firebaseapp.com",
+    databaseURL: "https://new-search-innovations.firebaseio.com",
+    projectId: "new-search-innovations",
+    storageBucket: "new-search-innovations.appspot.com",
+    messagingSenderId: "935478226292",
+    appId: "1:935478226292:web:fa40b03bb51341dc9b1021",
+    measurementId: "G-XHFQSY3B8Q"
+  };
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 function signIn(){
     var email = document.getElementById("uname").value;
     var password = document.getElementById("psw").value;
