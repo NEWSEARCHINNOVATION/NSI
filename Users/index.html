@@ -166,7 +166,7 @@ span.psw {
 var name0=decodeURIComponent(window.location.search);
 name1=name0.substring(1);
 var name2=name1.indexOf("&psw=");
-var name3=name1.slice(6,name2);
+var name3=name1.slice(0,name2);
 document.getElementById("name_value").innerHTML=name3;
 if(name3=="") {
 	alert("You are not the user of NSI");
