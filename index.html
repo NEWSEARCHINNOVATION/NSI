@@ -2,13 +2,15 @@
 <html>
 <title>NSI</title>
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180768666-1"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'UA-180768666-1');
 </script>
 <style type="text/css">
@@ -158,30 +160,32 @@ span.psw {
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="https://newsearchinnovations.ml">Home</a>
-  <!--<a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>-->
+  <a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</a>
   <a href="https://newsearchinnovation.github.io/NSI/registeruser.nsi.in.html">Join With Us</a>
   <a href="https://newsearchinnovation.github.io/NSI/aboutus.nsi.in.html">About us</a>
   <center><temp style="font-size:20px;color:red;">COMING SOON.....</temp></center>
 </div>
 <span style="font-size:75px;cursor:pointer;float:left;" onclick="openNav()">&#9776;</span>
 <div id="id01" class="modal">
-  <form class="modal-content animate" name="form1" action="http://newsearchinnovation.github.io/NSI/Users" onsubmit="return myfun()" method="get">
+  <!--<form class="modal-content animate" name="form1" action="http://newsearchinnovation.github.io/NSI/Users" onsubmit="return myfun()" method="get">-->
+<div class="modal-content animate">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <!--<img src="https://newsearchinnovation.github.io/NSI/Photos/nsi_logo.png" alt="Avatar" class="avatar" height="50" width="50">-->
     </div>
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter mail ID" name="uname" id="uname" required>
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>   
-      <button type="submit">Login</button>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required>   
+      <button onclick="signIn()">Login</button>
     </div>
     <div class="container" style="background-color:#f1f1f1">
       <a href="https://newsearchinnovation.github.io/NSI/registeruser.nsi.in.html"><button type="button" class="cancelbtn">Register Now</button></a>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
-  </form>
+  <!--</form>-->
+</div>
 </div>
 <center><img src="https://newsearchinnovation.github.io/NSI/Photos/nsi_logo.png" width="400" height="400"></center></br>
 <h1><center>OUR FUTURE PROGRAMS</center></h1></br>
@@ -193,13 +197,24 @@ span.psw {
 </br>
 <center><temp style="font-size:70px;color:red;">LAUNCHING SOON...STAY TUNED.....</temp></center>
 <script>
+function signIn(){
+    var email = document.getElementById("uname").value;
+    var password = document.getElementById("psw").value;
+    firebase.auth().signInWithEmailAndPassword(email, password).then((success) => {
+	window.location.replace("http://newsearchinnovation.github.io/NSI/Users.html");
+        }).catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+	    alert(errorMessage);
+            });
+}
 function myfun() {
 	var i;
 	var x=document.forms["form1"]["uname"].value;
 	var y=document.forms["form1"]["psw"].value;
-	var uname=["NSI@INDIA","JAGAGANESH","SRHARI2002","LEGALSPY"];
-	var pword=["NSI@INDIA","Jaga@123","Hari@123","tndalu"];
-	var email=["newsearchinnovations@gmail.com","jagaganesh555@gmail.com","sharibalan2002@gmail.com","sakthiguru7363@gmail.com"];
+	var uname=[];
+	var pword=[];
+	var email=[];
 	for(i=0;i<uname.length;i++) {
 		if(x==uname[i] && y==pword[i] || x==email[i]) {
 			return true;
