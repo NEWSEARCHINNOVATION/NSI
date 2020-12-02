@@ -55,3 +55,13 @@ function signIn(){
 	    alert(errorMessage);
             });
 }
+function signOut(){
+    firebase.auth().signOut().then((value) => {
+        window.location.replace("http://newsearchinnovation.github.io/NSI");
+        });
+    }).catch(function(error) {
+	var errorMessage=error.message;
+        let errorMessage = error.message;
+	alert(errorMesage);    
+    });
+}
