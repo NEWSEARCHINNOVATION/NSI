@@ -7,6 +7,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="firebase.js"></script> 
 </head>
 <style>
 body {
@@ -186,54 +187,6 @@ span.psw {
 	<a href="http://newsearchinnovations.ml" style="color:blue;font-size:25px;"><button>Click Here To Continue</button></a>
     </div>
 </div>
-<script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyCXyRoWOmFpUoMtya9Dwv_1S34YXeLTai8",
-    authDomain: "new-search-innovations.firebaseapp.com",
-    databaseURL: "https://new-search-innovations.firebaseio.com",
-    projectId: "new-search-innovations",
-    storageBucket: "new-search-innovations.appspot.com",
-    messagingSenderId: "935478226292",
-    appId: "1:935478226292:web:fa40b03bb51341dc9b1021",
-    measurementId: "G-XHFQSY3B8Q"
-  };
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-function signUp(){
-    var name = document.getElementById("name").value;
-    var dob = document.getElementById("dob").value;
-    var email = document.getElementById("email").value;
-    var number = document.getElementById("number").value;
-    var uname = document.getElementById("uname").value;
-    var password = document.getElementById("psw").value;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-	.then((success) => {
-            var user = firebase.auth().currentUser;
-            var uid;
-            if (user != null) {
-                uid = user.uid;
-            }
-            var firebaseRef = firebase.database().ref();
-            var userData = {
-                Name: name,
-                DOB: dob,
-                Email: email,
-                Password: password,
-		UserName: uname,
-		MobileNumber: number,
-            }
-            firebaseRef.child(uid).set(userData);
-	})
-	.then((then) => {
-	myfunc2();
-        })
-      .catch((error) => {
-      	var errorCode = error.code;
-      	var errorMessage = error.message;
-      	alert(errorMessage);
-    });
-}
-</script>
 <script>
 function AddValuesToGoogleSheets() {	
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwG1DDUo_xfmO0lHNeeds6Y3tZaawFy4WcG7m37NH6bVGXJaNwr/exec'
