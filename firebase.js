@@ -8,6 +8,50 @@
     appId: "1:935478226292:web:fa40b03bb51341dc9b1021",
     measurementId: "G-XHFQSY3B8Q"
   };
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+function signUp(){
+    var name = document.getElementById("name").value;
+    var dob = document.getElementById("dob").value;
+    var email = document.getElementById("email").value;
+    var number = document.getElementById("number").value;
+    var uname = document.getElementById("uname").value;
+    var password = document.getElementById("psw").value;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+	.then((success) => {
+            var user = firebase.auth().currentUser;
+            var uid;
+            if (user != null) {
+                uid = user.uid;
+            }
+            var firebaseRef = firebase.database().ref();
+            var userData = {
+                Name: name,
+                DOB: dob,
+                Email: email,
+                Password: password,
+		            UserName: uname,
+		            MobileNumber: number,
+            }
+            firebaseRef.child(uid).set(userData);
+	})
+	.then((then) => {
+	myfunc2();
+        })
+      .catch((error) => {
+      	var errorCode = error.code;
+      	var errorMessage = error.message;
+      	alert(errorMessage);
+    });
+}
+function signIn(){
+    var email = document.getElementById("uname").value;
+    var password = document.getElementById("psw").value;
+    firebase.auth().signInWithEmailAndPassword(email, password).then((success) => {
+	window.location.replace("http://newsearchinnovation.github.io/NSI/Users?"+email);
+        }).catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+	    alert(errorMessage);
+            });
+}
