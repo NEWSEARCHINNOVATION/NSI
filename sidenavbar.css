@@ -32,3 +32,11 @@
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
