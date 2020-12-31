@@ -33,7 +33,7 @@ function signUp(){
 		UserName: uname,
 		MobileNumber: number,
             }
-            firebaseRef.child(uid).set(userData);
+            firebaseRef.child("NSI-USERS/"+uid+"/PersonalDetails").set(userData);
 	})
 	.then((then) => {
 	myfunc2();
