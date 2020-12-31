@@ -48,9 +48,7 @@ button:hover {
   opacity: 0.8;
 }
 .cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #f44336;
+   width: 100%;
 }
 .imgcontainer {
   text-align: center;
@@ -65,8 +63,8 @@ img.avatar {
   padding: 16px;
 }
 span.psw {
-  float: right;
-  padding-top: 16px;
+   display: block;
+   float: none;
 }
 .modal {
   display: none;
@@ -112,13 +110,15 @@ span.psw {
   from {transform: scale(0)} 
   to {transform: scale(1)}
 }
-@media screen and (max-width: 300px) {
+@media screen and (min-width: 768px) {
   span.psw {
-     display: block;
-     float: none;
+    float: right;
+    padding-top: 16px;
   }
   .cancelbtn {
-     width: 100%;
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
   }
 }
 </style>
